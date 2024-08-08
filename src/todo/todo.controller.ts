@@ -22,8 +22,8 @@ export class TodoController {
     }
 
     @Put(':id')
-    async update(@Param('id') id: string, @Body() todo: Partial<TodoInterface>): Promise<void>{
-        await this.todoService.update(+id, todo)
+    async update(@Param('id') id: string, @Body() todo: Partial<TodoInterface>): Promise<TodoInterface>{
+        return await this.todoService.update(+id, todo)
     }
 
 
