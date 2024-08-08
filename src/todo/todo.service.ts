@@ -22,6 +22,10 @@ export class TodoService {
         return this.todoRepository.save(newTodo)
     }
 
+    async update(id: number, todo: Partial<TodoInterface>): Promise<void> {
+        await this.todoRepository.update(id, todo)       
+    }
+
     async delete(id: number): Promise<TodoInterface[]> {
         await this.todoRepository.delete(id)
         return this.todoRepository.find()
